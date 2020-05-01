@@ -1,5 +1,5 @@
 # MyUtil.py
-: some useful user exprience, siplified funtions to import
+: some useful user exprience, simplified funtions to import. maybe you can study basics of python understanding these scripts :D
 
 MyUtil.subplot() : make subplot at once
 (example)
