@@ -28,4 +28,4 @@ use exe file, or modify py script
 
 - mouseLock.py : I prevent mouse to across border. if you have a monitor not using, or turned off for some purpose, it might be useful
 
-- double_checker.exe : it's made for double-check between documents. you can select strings to compare by pressing "ctrl + C"
+- double_checker.exe : it's made to help "manual" double-check between documents. you can select strings to compare by pressing "ctrl + C"
