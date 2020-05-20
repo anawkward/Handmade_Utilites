@@ -18,8 +18,6 @@ def compare(s1:str, s2:str):
     else:
         x = s2
         y = s1
-    x = x.replace(' ', '').replace('\n', '')
-    y = y.replace(' ', '').replace('\n', '')
     if x == y:
         return True
     else:
@@ -33,7 +31,10 @@ def compareList(l1:list, l2:list):
         else:
             ret.append(False)
     return ret
-
+def remover(target:str, delete:Union[list, tuple, str]):
+    for item in delete:
+        target = target.replace(item, '')
+    return target
 def history_to_lists(history:list, seq_len:int):
     l1 = history[-2*seq_len:-seq_len]
     l2 = history[-seq_len:]
@@ -44,6 +45,7 @@ def key_release(k):
     try:
         if k.char == '\x03':
             content = pyperclip.paste() #type:str
+            content = remover(content, ['\n', ' ', '\r', '\"', '\''])
             print(content, end = '|')
             history.append(content)
             if len(history)%(seq_len*2) == 0:
@@ -51,13 +53,13 @@ def key_release(k):
                 comp = compareList(l1, l2)
                 for b in comp:
                     if b:
-                        print('SAME', end = '')
+                        print('\b\nSAME')
                         history = []
                     else:
-                        print('DIFF', end = '')
+                        print('\b\nDIFF')
                         history = []
             elif len(history)%seq_len == 0:
-                print('<SWITCH>')
+                print('\b\n<SWITCH>')
     except:
         pass
 
